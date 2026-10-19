@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OT-Autopesut – Liikkuva autopesu Pirkkalassa ja Tampereella</title>
+<meta name="description" content="OT-Autopesut tulee luoksesi Pirkkalassa ja Tampereella. Varaa sisäpesu netistä.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--ink:#e8eefb;--foam:#060a16;--suds:#12204a;--water:#6a93f2;--sun:#2f58d4;--line:#1f3166;--bg:#060a16;--card:#0b1430;--muted:#9fb0d4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Bricolage Grotesque",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:16px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--water)}
+nav{display:flex;gap:20px;font-size:15px;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;padding:36px 0 64px}
+h1{font-size:clamp(40px,7vw,84px);line-height:.95;letter-spacing:-.045em;font-weight:800;margin:0 0 20px}
+.lead{font-size:19px;color:var(--muted);max-width:30ch;margin:0 0 24px}
+.chips{display:flex;gap:10px;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+.chips li{background:var(--suds);border-radius:999px;padding:6px 14px;font-size:15px}
+.book{background:var(--card);border:2px solid #3a5cc0;border-radius:20px;padding:22px;box-shadow:8px 8px 0 #0d2a78}
+.book h2{margin:0 0 14px;font-size:22px;letter-spacing:-.02em}
+fieldset{border:0;padding:0;margin:0 0 16px}
+legend{font-weight:600;font-size:15px;margin-bottom:8px;padding:0}
+.opt{display:flex;justify-content:space-between;align-items:center;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:8px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--water);background:var(--suds)}
+.opt input{accent-color:var(--water);margin-right:10px}
+.opt b{font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.pill span{display:block;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;font-size:15px;cursor:pointer}
+.pill input:checked+span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pill input:focus-visible+span{outline:3px solid var(--sun);outline-offset:2px}
+input[type=text],input[type=tel],input[type=email]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);margin-bottom:8px}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:800;margin:6px 0 12px}
+.btn{width:100%;font:inherit;font-weight:800;font-size:18px;background:var(--sun);color:#fff;border:0;border-radius:12px;padding:14px;cursor:pointer}
+.btn:hover{filter:brightness(1.05)}
+.err{color:#ff8a80;font-size:14px;min-height:20px;margin:6px 0 0}
+.done{display:none}
+.done.show{display:block}
+.done h2{color:var(--water)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2.t{font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;margin:0 0 24px}
+.menu{list-style:none;padding:0;margin:0;max-width:640px}
+.menu li{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.menu .n{font-size:22px;font-weight:600}
+.menu .d{color:var(--muted);font-size:15px;display:block;font-weight:400}
+.menu .p{margin-left:auto;font-size:28px;font-weight:800;color:var(--water);white-space:nowrap}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:800;margin-bottom:10px}
+.steps b{display:block;font-size:20px}
+.steps span{color:var(--muted)}
+.area{max-width:56ch;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:15px}
+.note{background:#0a1a4a;color:#fff;padding:8px 0;font-size:14px;text-align:center}
+@media (max-width:800px){.hero{grid-template-columns:1fr;gap:28px}.steps{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;max-width:760px}
+.ba figure{margin:0;position:relative}
+.ba img,.work img{width:100%;height:340px;object-fit:cover;border-radius:12px;display:block;background:var(--suds)}
+.ba figcaption{position:absolute;left:10px;top:10px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;padding:3px 10px;border-radius:999px}
+.ba h3{grid-column:1/-1;margin:0;font-size:20px}
+.work{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:760px}
+.work img{height:300px}
+@media (max-width:560px){.ba img,.work img{height:220px}}
+
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.gal figure{margin:0;position:relative}
+.gal img{width:100%;height:260px;object-fit:cover;border-radius:12px;display:block;background:var(--suds)}
+.gal figcaption{position:absolute;left:10px;top:10px;background:#000;color:#fff;font-size:14px;font-weight:600;padding:3px 10px;border-radius:999px}
+.gal .j figcaption{background:#1b3d8f}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;max-width:760px;margin-top:12px}
+.vids video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;background:#000;display:block}
+
+.cmps{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.cmp{position:relative;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:#000;user-select:none;-webkit-user-select:none}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.cmp .aft{clip-path:inset(0 0 0 var(--p))}
+.cmp .tag{position:absolute;top:12px;background:#000;color:#fff;font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px;pointer-events:none}
+.cmp .l{left:12px}.cmp .r{right:12px;background:#1b3d8f}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:#fff;pointer-events:none}
+.cmp .knob{position:absolute;top:50%;left:var(--p);width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:#fff;color:#000;border:2px solid #000;display:grid;place-items:center;font-size:20px;pointer-events:none}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;touch-action:pan-y;-webkit-appearance:none;appearance:none}
+.cmp input::-webkit-slider-thumb{-webkit-appearance:none;width:44px;height:100vh}
+.cmp input::-moz-range-thumb{width:44px;height:100vh;border:0}
+.cmp:focus-within{outline:3px solid var(--sun);outline-offset:2px}
+
+.intro{margin:0 0 8px}
+.intro img{width:100%;height:clamp(230px,44vw,480px);object-fit:cover;object-position:center;border-radius:20px;display:block}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px}
+.two img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;display:block}
+
+.wrap{max-width:1200px}
+.hero{grid-template-columns:1fr !important;padding-bottom:40px}
+.pbwrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.pbwrap .menu{max-width:none}
+.promo{background:var(--sun);color:#fff;text-align:center;font-weight:800;padding:8px 12px;font-size:15px}
+.pop{position:fixed;inset:0;background:rgba(0,0,0,.72);display:grid;place-items:center;z-index:50;padding:20px}
+.pop[hidden]{display:none}
+.popc{position:relative;background:var(--card);border:2px solid #3a5cc0;border-radius:20px;box-shadow:8px 8px 0 #0d2a78;padding:32px 28px 28px;max-width:420px;width:100%;text-align:center}
+.popc h2{font-size:clamp(32px,8vw,44px);line-height:1;letter-spacing:-.03em;margin:6px 0 12px}
+.popc p{margin:0 0 20px;color:var(--muted)}
+.popc .k{color:var(--water);font-weight:600;margin:0 0 4px}
+.popc .x{position:absolute;top:8px;right:12px;background:none;border:0;color:var(--ink);font-size:30px;line-height:1;cursor:pointer;padding:6px}
+.popc .btn{display:block;text-decoration:none;text-align:center}
+@media (max-width:860px){.pbwrap{grid-template-columns:1fr;gap:32px}}
+.menu li.soon{opacity:.55}
+.menu li.soon .p{font-size:18px;color:var(--muted)}
+.opt.off{opacity:.45;cursor:not-allowed}
+.was{font-size:.6em;color:var(--muted);font-weight:600;margin-right:6px}
+.offer{background:var(--card);border:2px solid #3a5cc0;border-radius:16px;padding:16px 20px;margin:0 0 24px}
+.offer p{margin:0}.offer .k{color:var(--water);font-weight:600}
+.offer .big{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.offer .big .was{font-size:.5em}
+.promo{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:center;align-items:center;font-weight:600;line-height:1.35;padding:10px 14px}
+.promo s{opacity:.75}
+.promo label{cursor:pointer;display:inline-flex;gap:6px;align-items:center;background:rgba(0,0,0,.28);border-radius:999px;padding:3px 12px}
+.promo input{accent-color:#fff;width:16px;height:16px}
+.promo .pnote{font-weight:400;font-size:14px;opacity:.92}
+.popc .was{font-size:.5em}
+.popc .pfirst{display:flex;gap:8px;align-items:center;justify-content:center;background:var(--suds);color:var(--ink);border-radius:12px;padding:10px 14px;margin:0 0 12px;cursor:pointer;font-weight:600}
+.popc .pfirst input{width:18px;height:18px;accent-color:var(--water)}
+.popc .pnote{font-size:14px;margin:0 0 18px}
+.popc .btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--line);margin-top:10px}
+.popc .small{font-size:12px;margin:12px 0 0}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:18px}
+details p{color:var(--muted);max-width:72ch;margin:10px 0 0}
+details p b{color:var(--ink)}
+.book .m{margin:0 0 10px;color:var(--muted);font-size:15px}
+.pick{list-style:none;margin:0 0 14px;padding:0}
+.pick li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.pick li span:last-child{font-weight:800;white-space:nowrap}
+.book .btn{display:block;text-decoration:none;text-align:center}
+.bd{font-size:13px;font-weight:600;background:var(--suds);color:var(--water);border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.calc-out{background:var(--card);border:2px solid #3a5cc0;border-radius:20px;padding:22px;box-shadow:8px 8px 0 #0d2a78}
+.calc-out p{margin:0}
+.calc-out .k{color:var(--water);font-weight:600}
+.calc-out .big{font-size:clamp(40px,8vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:2px 0 14px}
+.calc-out .was{font-size:.5em}
+.calc-out .m{color:var(--muted);font-size:15px;margin:0 0 12px}
+.calc-out .btn{display:block;text-decoration:none;text-align:center}
+@media (max-width:860px){.calc{grid-template-columns:1fr;gap:28px}}
+.huge{font-size:clamp(48px,10vw,96px);letter-spacing:-.045em;line-height:1;font-weight:800;margin:0 0 10px}
+.subt{font-size:clamp(18px,3vw,24px);font-weight:600;color:var(--muted);margin:0 0 26px;letter-spacing:-.01em}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:40px}
+.tile{display:flex;flex-direction:column;gap:6px;text-align:left;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:16px;padding:16px 18px;font:inherit;cursor:pointer}
+.tile.plain{cursor:default}
+.tile .tl{font-size:14px;color:var(--muted);font-weight:600}
+.tile .tp{margin-top:auto;white-space:nowrap;font-size:clamp(32px,4vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.tile .tp s{display:block;font-size:15px;color:var(--muted);font-weight:600;margin:0 0 2px;line-height:1.2}
+.tile.on{border-color:#3a5cc0;box-shadow:6px 6px 0 #0d2a78}
+.tile:not(.plain):hover{border-color:#3a5cc0}
+.calc .opt>span:last-child{font-weight:800;font-size:19px;white-space:nowrap}
+.calc .opt small{font-size:13px;font-weight:600;color:var(--muted)}
+.fullbook{min-height:100vh;min-height:100svh;padding:56px 0;overflow-x:hidden}
+.vbox{width:100%;min-height:70vh;margin-top:20px}
+.vbox iframe{max-width:100%}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="#">OT-<span>Autopesut</span></a>
+  <nav aria-label="Päävalikko"><a href="#ennen-jalkeen">Ennen ja jälkeen</a><a href="#hinnat">Hinnasto</a><a href="#varaa">Varaa</a><a href="#pesuvaiheet">Pesuvaiheet</a><a href="#alue">Palvelualue</a><a href="#yhteys">Yhteystiedot</a></nav>
+</header>
+<div class="intro"><img src="media/kuva-01.jpg" alt="Volkswagen Passatin siisti sisusta"></div>
+
+<main>
+<div class="hero">
+  <div>
+    <h1>Liikkuva autopesu</h1>
+    <p class="lead">Tulemme luoksesi Pirkkalassa ja Tampereella. Varaa pesu alta.</p>
+    <ul class="chips"><li>Syyskauden viimeiset pesut: sisäpesu <s class="was">49 €</s> 33,50 €</li><li>Ulko- ja yhteispesu tulossa myöhemmin</li></ul>
+    <p style="margin:24px 0 0"><a class="btn" href="#varaa" style="display:inline-block;width:auto;padding:14px 32px;text-decoration:none;text-align:center">Varaa pesu</a></p>
+  </div>
+
+  </div>
+
+<section id="ennen-jalkeen">
+  <h2 class="t">Ennen ja jälkeen</h2>
+  <p class="area" style="margin-top:-12px;margin-bottom:24px">Vedä liukusäädintä nähdäksesi pesun tuloksen.</p>
+  <div class="cmps">
+    <div class="cmp" style="--p:50%" role="group" aria-label="Etulattia ennen ja jälkeen pesun">
+      <img src="media/kuva-04.jpg" alt="Etulattia ennen ja jälkeen pesun, ennen" loading="lazy" draggable="false">
+      <img class="aft" src="media/kuva-05.jpg" alt="Etulattia ennen ja jälkeen pesun, jälkeen" loading="lazy" draggable="false">
+      <span class="tag l">Ennen</span><span class="tag r">Jälkeen</span>
+      <span class="bar"></span><span class="knob" aria-hidden="true">&#8596;</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Vedä nähdäksesi eron: Etulattia ennen ja jälkeen pesun">
+    </div>
+    <div class="cmp" style="--p:50%" role="group" aria-label="Tavaratila ennen ja jälkeen pesun">
+      <img src="media/kuva-06.jpg" alt="Tavaratila ennen ja jälkeen pesun, ennen" loading="lazy" draggable="false">
+      <img class="aft" src="media/kuva-07.jpg" alt="Tavaratila ennen ja jälkeen pesun, jälkeen" loading="lazy" draggable="false">
+      <span class="tag l">Ennen</span><span class="tag r">Jälkeen</span>
+      <span class="bar"></span><span class="knob" aria-hidden="true">&#8596;</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Vedä nähdäksesi eron: Tavaratila ennen ja jälkeen pesun">
+    </div>
+    <div class="cmp" style="--p:50%" role="group" aria-label="Tavaratila ennen ja jälkeen pesun">
+      <img src="media/kuva-08.jpg" alt="Tavaratila ennen ja jälkeen pesun, ennen" loading="lazy" draggable="false">
+      <img class="aft" src="media/kuva-09.jpg" alt="Tavaratila ennen ja jälkeen pesun, jälkeen" loading="lazy" draggable="false">
+      <span class="tag l">Ennen</span><span class="tag r">Jälkeen</span>
+      <span class="bar"></span><span class="knob" aria-hidden="true">&#8596;</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Vedä nähdäksesi eron: Tavaratila ennen ja jälkeen pesun">
+    </div>
+    <div class="cmp" style="--p:50%" role="group" aria-label="Ovipaneeli ennen ja jälkeen pesun">
+      <img src="media/kuva-10.jpg" alt="Ovipaneeli ennen ja jälkeen pesun, ennen" loading="lazy" draggable="false">
+      <img class="aft" src="media/kuva-11.jpg" alt="Ovipaneeli ennen ja jälkeen pesun, jälkeen" loading="lazy" draggable="false">
+      <span class="tag l">Ennen</span><span class="tag r">Jälkeen</span>
+      <span class="bar"></span><span class="knob" aria-hidden="true">&#8596;</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Vedä nähdäksesi eron: Ovipaneeli ennen ja jälkeen pesun">
+    </div>
+    </div>
+  <h3 style="margin:40px 0 14px;font-size:20px">Lisää kuvia</h3>
+  <div class="two">
+    <img src="media/kuva-12.jpg" alt="Passatin kojelaudan ja sisustan pinnat" loading="lazy">
+    <img src="media/kuva-13.jpg" alt="Škodan ohjaamo" loading="lazy">
+  </div>
+</section>
+
+<section id="hinnat">
+  <h2 class="huge">Hinnasto</h2>
+  <h3 class="subt">Tarkastele hintoja ja tarjouksia ennen varaamista</h3>
+  <div class="calc">
+    <div>
+      <fieldset><legend>Palvelu</legend>
+        <label class="opt"><span><input type="radio" name="cs" checked><b>Sisäpesu</b></span><span>49 €</span></label>
+        <label class="opt off"><span><input type="radio" name="cs" disabled><b>Ulkopesu</b></span><span>Tulossa</span></label>
+        <label class="opt off"><span><input type="radio" name="cs" disabled><b>Sisä + ulko</b></span><span>Tulossa</span></label>
+      </fieldset>
+      <fieldset><legend>Lisäpalvelu</legend>
+        <label class="opt"><span><input type="checkbox" id="cwin"><b>Ikkunat sisältä</b></span><span><s class="was">10 €</s> +7,50 €</span></label>
+      </fieldset>
+      <fieldset><legend>Alennukset (voi yhdistää)</legend>
+        <label class="opt"><span><input type="checkbox" id="coff"><b>Syyskampanja</b></span><span><small>−30 %</small></span></label>
+        <label class="opt"><span><input type="checkbox" id="cfirst"><b>Ensimmäinen pesuni</b></span><span><small>−10 %</small></span></label>
+      </fieldset>
+    </div>
+    <div class="calc-out" aria-live="polite">
+      <p class="k">Hintasi</p>
+      <p class="big" id="cprice">49 €</p>
+      <ul class="pick" id="cbreak"></ul>
+      <p class="m" id="csave"></p>
+      <p class="m">Tämä on hintalaskuri, ei varaus. Alennukset voi käyttää samaan palveluun, ja ne huomioidaan maksun yhteydessä paikan päällä. Maksu paikan päällä. Ulkopesu ja sisä + ulko tulevat palveluihin myöhemmin.</p>
+      <a class="btn" href="#varaa">Varaa aika</a>
+    </div>
+  </div>
+</section>
+
+<section id="varaa" class="fullbook">
+  <h2 class="t">Varaa pesu</h2>
+  <p class="area">Valitse sopiva aika kalenterista. Hinnat ja alennukset näet hinnastosta. Maksu paikan päällä.</p>
+  <div class="vbox"><div><script async src="https://static.vello.fi/embed/v1.js" data-url="ot-autopesut" data-lang="fi"></script></div></div>
+  <p class="m" style="margin:16px 0 0">Jos kalenteri ei näy, soita 044 9822260.</p>
+</section>
+
+<section id="pesuvaiheet">
+  <h2 class="t">Pesuvaiheet</h2>
+  <p class="area">Imuroimme koko auton perusteellisesti, putsaamme tehokkaasti lattiamatot, pyyhimme pinnat kiiltäviksi ja pienetkin kolot puhdistuvat liasta pienharjojen avulla. Ikkunat sisältä tehdään lisämaksusta (syysalennus: 10 € → 7,50 €).</p>
+  <div class="work" style="margin-top:24px"><img src="media/kuva-02.jpg" alt="Takapenkin ja lattian imurointi" loading="lazy"><img src="media/kuva-03.jpg" alt="Lattiamaton pesu harjalla" loading="lazy"></div>
+  <div class="vids"><video controls muted playsinline preload="metadata" src="media/video-01.mp4" aria-label="Työvideo"></video><video controls muted playsinline preload="metadata" src="media/video-02.mp4" aria-label="Työvideo"></video><video controls muted playsinline preload="metadata" src="media/video-03.mp4" aria-label="Työvideo"></video></div>
+</section>
+
+<section id="alue">
+  <h2 class="t">Palvelualue ja syystarjous</h2>
+  <p class="area">Palvelemme Pirkkalassa ja Tampereella. Jos osoitteesi on lähialueella tai et ole varma, kuuluuko se palvelualueeseen, ota yhteyttä ennen varausta.</p>
+  <p class="area" style="margin-top:12px"><b>Syyskauden viimeiset pesut:</b> kelien heikentymisen vuoksi teemme vuoden viimeiset pesut kerrostalojen parkkihalleissa taloyhtiön luvalla hintaan 33,50 € (normaalihinta 49 €).</p>
+</section>
+<section id="ehdot">
+  <h2 class="t">Maksu, peruutus ja tietosuoja</h2>
+  <details>
+    <summary>Maksu ja peruutusehdot</summary>
+    <p><b>Maksu:</b> pesun hinta maksetaan paikan päällä.</p>
+    <p><b>Peruutus ja siirto:</b> voit perua tai siirtää varauksen soittamalla numeroon 044 9822260 tai kirjoittamalla osoitteeseen ot.autopesut@gmail.com mahdollisimman pian, viimeistään vuorokautta ennen sovittua aikaa.</p>
+    <p><b>Jos pesua ei voi tehdä:</b> jos pesua ei voida tehdä sovittuna aikana (esimerkiksi sään tai pääsyn vuoksi), sovimme kanssasi uuden ajan.</p>
+    <p><b>Alennukset:</b> syyskampanjan hinta koskee pesuja kerrostalojen parkkihalleissa. Ensikertalaisen −10 % alennuksen voi käyttää ensimmäiseen pesuun, ja sen voi yhdistää syyskampanjaan samaan palveluun.</p>
+  </details>
+  <details>
+    <summary>Tietosuojaseloste</summary>
+    <p><b>Rekisterinpitäjä:</b> OT-Autopesut, Pirkkala. Puhelin 044 9822260, sähköposti ot.autopesut@gmail.com.</p>
+    <p><b>Mitä tietoja keräämme:</b> varauslomakkeella antamasi nimen, puhelinnumeron, sähköpostiosoitteen ja osoitteen, jossa auto on, sekä varauksen tiedot (palvelu, aika, valitut alennukset ja hinta).</p>
+    <p><b>Mihin tietoja käytetään:</b> varauksen hoitamiseen, sinuun yhteydenpitoon varaukseen liittyen ja asiakaspalveluun. Käsittelyn peruste on varaukseen perustuva sopimus. Tietoja ei käytetä markkinointiin eikä myydä eteenpäin.</p>
+    <p><b>Kuinka kauan tietoja säilytetään:</b> niin kauan kuin se on tarpeen varauksen hoitamiseksi ja lakisääteisten velvoitteiden (esim. kirjanpito) täyttämiseksi.</p>
+    <p><b>Kenelle tietoja luovutetaan:</b> varaukset tehdään ulkopuolisen ajanvarauspalvelun (Vello) kautta. Varauksen yhteydessä antamasi tiedot tallentuvat siihen, ja palvelun tarjoaja käsittelee niitä omien ehtojensa mukaisesti. Emme tallenna varaustietoja tämän verkkosivun omalle palvelimelle.</p>
+    <p><b>Evästeet ja tekniset tiedot:</b> verkkosivu on julkaistu GitHub Pages -palvelussa, joka voi tallentaa teknisiä lokitietoja (esim. IP-osoite). Sivu ei itse käytä seuranta- tai mainosevästeitä, mutta ajanvarauspalvelu voi käyttää evästeitä. Sivu käyttää Google Fonts -fonttipalvelua, jolloin selaimesi IP-osoite välittyy Googlelle fonttien latauksen yhteydessä.</p>
+    <p><b>Oikeutesi:</b> voit pyytää nähtäväksi, oikaistavaksi tai poistettavaksi sinua koskevat tiedot ja vastustaa niiden käsittelyä ottamalla yhteyttä yllä oleviin yhteystietoihin. Sinulla on myös oikeus tehdä valitus tietosuojavaltuutetun toimistolle.</p>
+  </details>
+</section>
+</main>
+
+<footer id="yhteys">
+  <strong>OT-Autopesut</strong><br>
+  Puhelin: <a href="tel:+358449822260">044 9822260</a> · Sähköposti: <a href="mailto:ot.autopesut@gmail.com">ot.autopesut@gmail.com</a><br>
+  Pirkkala ja Tampere<br>
+  <a href="#ehdot">Maksu, peruutus ja tietosuoja</a>
+</footer>
+</div>
+
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="popt" hidden>
+  <div class="popc">
+    <button class="x" id="popx" type="button" aria-label="Sulje">&times;</button>
+    <p class="k">Syyskampanja</p>
+    <h2 id="popt"><s class="was">49 €</s> <span id="promoPrice">33,50 €</span></h2>
+    
+    <div class="pfirst" style="cursor:default">Ensikertalaisena lisäksi −10 %: <b>29,90 €</b></div>
+    <p class="pnote">Alennukset voi käyttää samaan palveluun.</p>
+    <a class="btn" href="#varaa" id="popgo">Varaa pesu</a>
+    <a class="btn alt" href="#ennen-jalkeen" id="popwork">Tarkastele ensin työmme jälkeä</a>
+    <p class="small">Alennukset huomioidaan maksun yhteydessä paikan päällä.</p>
+  </div>
+</div>
+<script>(function(){
+  var pop=document.getElementById("pop");
+  function close(){pop.hidden=true}
+  var seen=false;try{seen=sessionStorage.getItem("otpop")==="1"}catch(e){}
+  if(!seen)setTimeout(function(){pop.hidden=false;try{sessionStorage.setItem("otpop","1")}catch(e){}document.getElementById("popx").focus()},400);
+  [].forEach.call(document.querySelectorAll('a[href="#ehdot"]'),function(a){a.addEventListener("click",function(){[].forEach.call(document.querySelectorAll("#ehdot details"),function(d){d.open=true})})});
+  document.getElementById("popx").addEventListener("click",close);
+  document.getElementById("popgo").addEventListener("click",close);
+  document.getElementById("popwork").addEventListener("click",close);
+  pop.addEventListener("click",function(e){if(e.target===pop)close()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!pop.hidden)close()});
+})();
+
+
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  function eur(n){return (Number.isInteger(n)?String(n):n.toFixed(2)).replace(".",",")+" €"}
+  function rd(n){return Math.round(n*100)/100}
+  function calcPrice(win,off,fst){
+    var rows=[["Sisäpesu, normaalihinta",eur(49)]],cur=49;
+    if(off){rows.push(["Syyskampanja","−"+eur(rd(cur-33.5))]);cur=33.5}
+    if(fst){var nb=off?29.9:44.1;rows.push(["Ensikertalaisen alennus","−"+eur(rd(cur-nb))]);cur=nb}
+    var w=win?7.5:0;
+    if(win)rows.push(["Ikkunat sisältä","+"+eur(w)]);
+    var total=rd(cur+w),normal=49+(win?10:0);
+    return {rows:rows,total:total,normal:normal,save:rd(normal-total)};
+  }
+  function render(){
+    var c=calcPrice($("cwin").checked,$("coff").checked,$("cfirst").checked);
+    $("cprice").innerHTML=(c.save>0?'<s class="was">'+eur(c.normal)+'</s> ':"")+eur(c.total);
+    var ul=$("cbreak");ul.textContent="";
+    c.rows.forEach(function(x){var li=document.createElement("li"),a=document.createElement("span"),b=document.createElement("span");a.textContent=x[0];b.textContent=x[1];li.appendChild(a);li.appendChild(b);ul.appendChild(li)});
+    $("csave").textContent=c.save>0?"Säästät yhteensä "+eur(c.save)+".":"";
+  }
+  [].forEach.call(document.querySelectorAll("#hinnat input"),function(i){i.addEventListener("change",render)});
+  render();
+  window.__calcPrice=calcPrice;
+})();
+(function(){
+  document.querySelectorAll(".cmp").forEach(function(c){
+    var r=c.querySelector("input");
+    r.addEventListener("input",function(){c.style.setProperty("--p",r.value+"%")});
+  });
+})();
+</script>
+</body>
+</html>
