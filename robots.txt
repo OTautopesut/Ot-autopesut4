@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ot-autopesut.fi/sitemap.xml

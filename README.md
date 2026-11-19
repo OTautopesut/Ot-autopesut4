@@ -3,7 +3,9 @@
 Tämä on pelkkä staattinen nettisivu (`index.html` + `media`-kansio). Siinä ei ole omaa palvelinta eikä omaa varausjärjestelmää.
 
 - **Ajanvaraus** hoidetaan Vellon varauskalenterilla, joka on upotettu sivulle (kohta "Varaa pesu"). Vellossa varataan vain aika.
-- **Hinnat ja alennukset** näytetään pelkästään sivulla. Alennukset huomioidaan maksun yhteydessä paikan päällä.
+- **Hinnat ja ensikertalaisen −10 % alennus** näytetään pelkästään sivulla. Alennus lasketaan koko pesun kokonaishinnasta lisäpalveluineen ja huomioidaan maksun yhteydessä paikan päällä.
+
+Hinnaston hintalaskuri laskee kokonaishinnan ja tekee valmiin tekstin, jonka asiakas kirjoittaa Vellon varauksen tekstikenttään. Hintoja ei välitetä Velloon.
 
 ## 1. Vellon asetukset
 
@@ -21,12 +23,16 @@ Tarkista Vellosta, että kalenteri näkyy julkaistulla sivulla (esikatselu ei si
 
 1. Luo tili osoitteessa github.com.
 2. Luo uusi repository (esim. `ot-autopesut`). GitHub Pages -sivusto on julkinen.
-3. Lataa repositoryyn tiedostot: `index.html`, `.nojekyll` ja `media`-kansio (sisältöineen). "Add file → Upload files".
+3. Lataa repositoryyn tiedostot: `index.html`, `.nojekyll`, `robots.txt`, `sitemap.xml` ja `media`-kansio (sisältöineen). "Add file → Upload files".
 4. Asetukset: Settings → Pages → Source: "Deploy from a branch" → Branch: `main`, kansio `/ (root)` → Save.
 5. Hetken kuluttua sivu aukeaa GitHubin antamassa osoitteessa. Kokeile, että Vellon kalenteri latautuu.
-6. Oma domain: osta ot-autopesut.com, kirjoita se kohtaan Settings → Pages → Custom domain ja lisää domainin DNS-asetuksiin GitHubin ohjeen mukaiset tietueet. Ota lopuksi käyttöön "Enforce HTTPS".
+6. Oma domain: osta ot-autopesut.fi, kirjoita se kohtaan Settings → Pages → Custom domain ja lisää domainin DNS-asetuksiin GitHubin ohjeen mukaiset tietueet. Ota lopuksi käyttöön "Enforce HTTPS".
 
-## 3. Muokkaaminen
+## 3. Hakunäkyvyys
+
+Sivulla on valmiina hakukonetiedot (otsikko, kuvaus, kanoninen osoite, jaettavan linkin esikatselu ja yritystiedot Googlea varten). Ne olettavat osoitteeksi https://ot-autopesut.fi/. Jos julkaiset ensin GitHubin osoitteessa, vaihda osoite `index.html`:ssä, `robots.txt`:ssä ja `sitemap.xml`:ssä. Google-yritysprofiilin ja Search Consolen ohje on erillisessä ohjedokumentissa.
+
+## 4. Muokkaaminen
 
 Hinnat, tekstit ja värit ovat `index.html`:ssä. Muuta tiedostoa ja lataa se uudelleen GitHubiin, niin sivu päivittyy. Kuvat ja videot ovat `media`-kansiossa.
 
